@@ -1,0 +1,53 @@
+﻿<Window x:Class="MMT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MMT"
+        mc:Ignorable="d"
+        Title="MMT - MongoDb Management Tool" Height="500" Width="600"
+        ResizeMode="NoResize"
+        DataContext="{Binding StartVM, Source={StaticResource Logic}, Mode=OneWay}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Content="!!!!Path in User Dirs are not allowed!!!!" />
+        <Label Grid.Row="1" Grid.Column="1" Content="Path to mongod.exe" />
+        <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding MongoDLocation}"></TextBox>
+        <Label Grid.Row="2" Grid.Column="1" Content="Path to mongodump.exe" />
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding MongoDump}"></TextBox>
+        <Label Grid.Row="3" Grid.Column="1" Content="Path to mongorestore.exe" />
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding MongoRestoreLocation}"></TextBox>
+        <Label Grid.Row="4" Grid.Column="1" Content="Path to Database" />
+        <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding DbLocation}"></TextBox>
+        <Label Grid.Row="5" Grid.Column="1" Content="DB Name" />
+        <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding DBName}"></TextBox>
+        <Label Grid.Row="6" Grid.Column="1" Content="Load Dump from" />
+        <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding DumpLocation}"></TextBox>
+        <Label Grid.Row="7" Grid.Column="1" Content="Save Dump to" />
+        <TextBox Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding CreateDumpLocation}"></TextBox>
+        
+        <Button Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Name="Start" Content="Start" Command="{Binding RunDb}"></Button>
+        <Button Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Name="Restore" Content="Restore" Command="{Binding RestoreDB}"></Button>
+        <Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" Name="Dump" Content="Create Dump" Command="{Binding DumpDB}"></Button>
+    </Grid>
+</Window>
